@@ -1,0 +1,16 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  position: absolute;
+}
+
+div {
+  height: 95vh;
+  width: 96vw;
+  border: 10px solid #f00;
+  margin: 10px;
+}
