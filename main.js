@@ -45,11 +45,11 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 //const gridHelper = new THREE.GridHelper(200, 50)
 //scene.add(gridHelper);
+const starGeometry = new THREE.SphereGeometry(.75, 24, 24);
+const starMaterial = new THREE.MeshStandardMaterial({color:0xffffff});
 
 function addStar() {
-  const geometry = new THREE.SphereGeometry(.75, 24, 24);
-  const material = new THREE.MeshStandardMaterial({color:0xffffff});
-  const star = new THREE.Mesh(geometry, material);
+  const star = new THREE.Mesh(starGeometry, starMaterial);
 
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(3000));
 
@@ -61,10 +61,26 @@ Array(500).fill().forEach(addStar);
 
 function scrollAnimation() {
   const t = document.body.getBoundingClientRect().top;
-  //console.log(t);
+  console.log(t);
   camera.position.z = t * -speed - startingZ;
   
   cube.position.z = t * -speed - 4950;
+
+  if (t < -1380) {
+    const square1 = document.getElementById("square1");
+    const square2 = document.getElementById("square2");
+    const square3 = document.getElementById("square3");
+    
+    square1.style.opacity = '1';
+    square2.style.opacity = '1';
+    square3.style.opacity = '1';
+    //const collection = document.getElementsByClassName("square");
+    
+    // for (var i = 0; i < collection.length; i++) {
+    //   collection[i].style.opacity = '1';
+    // }
+  }
+
   if (t < -250 && t > -1923) {
     cube.position.x = t * -0.04 - 40
   }
@@ -78,7 +94,7 @@ function scrollAnimation() {
     
     cube.position.x = t * -0.04 - 180
   }
-  console.log(cube.position.x);
+  //console.log(cube.position.x);
 }
 
 document.body.onscroll = scrollAnimation;
