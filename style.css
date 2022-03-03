@@ -86,8 +86,21 @@ h2 {
   font-weight: 800;
   font-family: 'Inconsolata', monospace;
   padding-top: 10vw;
-  padding-bottom: 4vw;
+  padding-bottom: 1vw;
   line-height: 110.2%;
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.square5 {
+  font-size: 1.5vw;
+  font-weight: 800;
+  font-family: 'Inconsolata', monospace;
+  padding-left: 10vw;
+  padding-top: 7vh;
+  line-height: 110.2%;
+  width: 30%;
+  margin: 0;
   opacity: 1;
   transition: opacity 2s;
 }
@@ -113,28 +126,71 @@ h2 {
 .team-member {
   display: grid;
   grid-template-columns: 30% 70%;
+  text-align: start;
   
 }
 
 .team-member:nth-child(odd) {
   grid-template-columns: 70% 30%;
+  text-align: end;
 }
 
 
 .name {
-  background-color: #f00;
-  margin: 3vw;
-  height: 20vh;
+  text-align: center;
+  color: black;
+  background-color: white;
+  font-size: 1.5vw;
+  font-weight: 800;
+  font-family: 'Inconsolata', monospace;
+  border-radius: 1.5vw;
+  margin: 2vw;
+  height: 22vh;
+  margin-top: auto;
+  box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.5);
 }
 
 .bio {
-  background-color: #f00;
-  margin: 3vw;
-  height: 20vh;
+  color: white;
+  background-color: #171717;
+  font-size: 1.5vw;
+  font-weight: 800;
+  font-family: 'Inconsolata', monospace;
+  border-radius: 1.5vw;
+  margin: 2vw;
+  height: 28vh;
+  box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(.4vw .4vw 0px #2E2E2E);
 }
 
 .centered {
   text-align: center;
   margin: auto;
   width: 60vw;
+}
+
+img {
+  width: 45%;
+  height: 55%;
+  border-radius: 50%;
+  position: relative;
+  top: -25%;
+}
+
+.bio-title {
+  font-size: 2vw;
+  font-weight: 800;
+  padding-top: 4vh;
+  padding-left: 3.5vw;
+  padding-right: 3.5vw;
+  font-family: 'Inconsolata', monospace;
+  line-height: 110.2%;
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.bio-content {
+  font-size: 1vw;
+  padding: 3.5vw;
+  padding-top: 2vh;
 }
