@@ -67,13 +67,13 @@ function scrollAnimation() {
   cube.position.z = t * -speed - 4950;
 
   if (t < -1380) {
-    const square1 = document.getElementById("square1");
-    const square2 = document.getElementById("square2");
-    const square3 = document.getElementById("square3");
+    // const square1 = document.getElementById("square1");
+    // const square2 = document.getElementById("square2");
+    // const square3 = document.getElementById("square3");
     
-    square1.style.opacity = '1';
-    square2.style.opacity = '1';
-    square3.style.opacity = '1';
+    // square1.style.opacity = '1';
+    // square2.style.opacity = '1';
+    // square3.style.opacity = '1';
     //const collection = document.getElementsByClassName("square");
     
     // for (var i = 0; i < collection.length; i++) {
@@ -88,6 +88,14 @@ function scrollAnimation() {
   if (t < -2576 && t > -3840) {
     
     cube.position.x = t * 0.04 + 140
+  }
+
+  if (t < -2464) {
+    const left = document.getElementById("left-bar");
+    const right = document.getElementById("right-bar");
+
+    left.style.left = '-1%'
+    right.style.right = '0'
   }
 
   if (t < -4173 && t > -5000) {

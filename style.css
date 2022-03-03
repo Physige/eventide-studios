@@ -15,10 +15,9 @@ main {
 }
 
 .viewportContainer {
-  padding-left: 8vw;
   height: 100vh;
-  width: 100vw;
   border: 1px solid #f00;
+  justify-content: center;
 }
 
 h1 {
@@ -29,6 +28,7 @@ h1 {
   line-height: 110.2%;
   width: 25%;
   margin: 0;
+  padding-left: 8vw;
 }
 
 h2 {
@@ -36,18 +36,20 @@ h2 {
   font-family: 'Inconsolata', monospace;
   font-weight: 700;
   width: 35%;
+  padding-left: 8vw;
 }
+
 
 .square {
   font-size: 3vw;
   font-weight: 800;
   font-family: 'Inconsolata', monospace;
   padding-top: 10vw;
-  padding-left: 2vw;
+  padding-left: 10vw;
   line-height: 110.2%;
   width: 50%;
   margin: 0;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 2s;
 }
 
@@ -55,11 +57,11 @@ h2 {
   font-size: 1.5vw;
   font-weight: 800;
   font-family: 'Inconsolata', monospace;
-  padding-left: 2vw;
+  padding-left: 10vw;
   line-height: 110.2%;
   width: 30%;
   margin: 0;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 2s;
 }
 
@@ -73,8 +75,66 @@ h2 {
   width: 30%;
   transition: opacity 2s;
   bottom: 200px;
-
+  
   -ms-transform: rotate(-20deg);
   -webkit-transform: rotate(-20deg);
   transform: rotate(-20deg);
+}
+
+.square4 {
+  font-size: 3vw;
+  font-weight: 800;
+  font-family: 'Inconsolata', monospace;
+  padding-top: 10vw;
+  padding-bottom: 4vw;
+  line-height: 110.2%;
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.whitebar-left {
+  background-color: white;
+  position: absolute;
+  left: -11%;
+  height: 100%;
+  width: 10%;
+  transition: .5s;
+}
+
+.whitebar-right {
+  background-color: white;
+  position: absolute;
+  right: -11%;
+  height: 100%;
+  width: 10%;
+  transition: .5s;
+}
+
+.team-member {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  
+}
+
+.team-member:nth-child(odd) {
+  grid-template-columns: 70% 30%;
+}
+
+
+.name {
+  background-color: #f00;
+  margin: 3vw;
+  height: 20vh;
+}
+
+.bio {
+  background-color: #f00;
+  margin: 3vw;
+  height: 20vh;
+}
+
+.centered {
+  text-align: center;
+  margin: auto;
+  width: 60vw;
 }
