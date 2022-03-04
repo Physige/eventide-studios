@@ -4,6 +4,8 @@ import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+
 window.onresize = () => {
   location.reload();
 };
@@ -23,6 +25,21 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(-startingZ);
 
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(ambientLight);
+
+const gltfLoader = new GLTFLoader();
+
+gltfLoader.load('assets/Hanger.gltf', (gltf) => {
+  scene.add(gltf.scene);
+  gltf.scene.position.set(-50, -4.5, -startingZ)
+})
+
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(-3, -3, -startingZ-50)
+pointLight.castShadow = true;
+scene.add(pointLight);
+
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({color:0x4287f5});
 const torus = new THREE.Mesh(geometry, material);
@@ -33,13 +50,6 @@ const geometry2 = new THREE.BoxGeometry(10, 10, 20);
 const cube = new THREE.Mesh( geometry2, material );
 cube.position.set(-40, -20,-4950);
 scene.add(cube);
-
-// const pointLight = new THREE.PointLight(0xffffff);
-// pointLight.position.set(5, 5, 500)
-// scene.add(pointLight);
-
-const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add(ambientLight);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -79,6 +89,7 @@ galleryButton.onclick = () => {
     }
   }
 }
+
 function scrollAnimation() {
   const t = document.body.getBoundingClientRect().top;
   console.log(t);

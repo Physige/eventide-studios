@@ -28,6 +28,7 @@ main {
 }
 
 h1 {
+  color: black;
   font-size: 5vw;
   font-weight: 700;
   font-family: 'Syncopate', sans-serif;
@@ -39,6 +40,7 @@ h1 {
 }
 
 h2 {
+  color: black;
   font-size: 2vw;
   font-family: 'Inconsolata', monospace;
   font-weight: 100;
@@ -157,6 +159,11 @@ h2 {
   height: 22vh;
   margin-top: auto;
   box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.5);
+  transition: .5s;
+}
+
+.name:hover {
+  transform: scale(1.008);
 }
 
 .bio {
@@ -168,8 +175,13 @@ h2 {
   border-radius: 1.5vw;
   margin: 2vw;
   height: 28vh;
-  box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.5);
-  filter: drop-shadow(.4vw .4vw 0px #2E2E2E);
+  transition: .5s;
+}
+
+.bio:hover {
+  transform: scale(1.008);
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0px .7vh 0px #2E2E2E); */
 }
 
 .centered {
@@ -215,7 +227,7 @@ h2 {
   width: 50%;
   display: grid; 
   grid-auto-columns: 1fr; 
-  row-gap: 2vh;
+  row-gap: 2.5vh;
   position: absolute;
   right: 0;
 }
@@ -223,8 +235,13 @@ h2 {
 .gallery > img {
   width: 100%;
   height: auto;
+  border-radius: 1.5vw;
   transition: 1s;
   opacity: 0;
+}
+
+.gallery > img:hover {
+  transform: scale(1.08);
 }
 
 .gallery > img:nth-child(2) {
