@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&family=Miriam+Libre&family=Mr+Dafoe&family=Public+Sans:wght@100&family=Syncopate:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&family=Miriam+Libre&family=Mr+Dafoe&family=Syncopate:wght@700&display=swap');
+
 canvas {
   position: fixed;
   top: 0;
@@ -20,6 +21,12 @@ main {
   justify-content: center;
 }
 
+.viewportContainer:nth-child(8) {
+  height: 280vh;
+  border: 1px solid white;
+  justify-content: center;
+}
+
 h1 {
   font-size: 5vw;
   font-weight: 700;
@@ -34,7 +41,7 @@ h1 {
 h2 {
   font-size: 2vw;
   font-family: 'Inconsolata', monospace;
-  font-weight: 700;
+  font-weight: 100;
   width: 35%;
   padding-left: 8vw;
 }
@@ -42,8 +49,8 @@ h2 {
 
 .square {
   font-size: 3vw;
-  font-weight: 800;
-  font-family: 'Inconsolata', monospace;
+  font-weight: 100;
+  font-family: 'Miriam Libre', sans-serif;
   padding-top: 10vw;
   padding-left: 10vw;
   line-height: 110.2%;
@@ -55,7 +62,7 @@ h2 {
 
 .square2 {
   font-size: 1.5vw;
-  font-weight: 800;
+  font-weight: 100;
   font-family: 'Inconsolata', monospace;
   padding-left: 10vw;
   line-height: 110.2%;
@@ -76,15 +83,17 @@ h2 {
   transition: opacity 2s;
   bottom: 200px;
   
-  -ms-transform: rotate(-20deg);
-  -webkit-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg); 
+  -moz-transform: rotate(-20deg); 
+  -webkit-transform: rotate(-20deg); 
+  -o-transform: rotate(-20deg); 
   transform: rotate(-20deg);
 }
 
 .square4 {
   font-size: 3vw;
-  font-weight: 800;
-  font-family: 'Inconsolata', monospace;
+  font-weight: 100;
+  font-family: 'Miriam Libre', sans-serif;
   padding-top: 10vw;
   padding-bottom: 1vw;
   line-height: 110.2%;
@@ -94,7 +103,7 @@ h2 {
 
 .square5 {
   font-size: 1.5vw;
-  font-weight: 800;
+  font-weight: 100;
   font-family: 'Inconsolata', monospace;
   padding-left: 10vw;
   padding-top: 7vh;
@@ -141,8 +150,8 @@ h2 {
   color: black;
   background-color: white;
   font-size: 1.5vw;
-  font-weight: 800;
-  font-family: 'Inconsolata', monospace;
+  font-weight: 100;
+  font-family: 'Miriam Libre', sans-serif;
   border-radius: 1.5vw;
   margin: 2vw;
   height: 22vh;
@@ -154,8 +163,8 @@ h2 {
   color: white;
   background-color: #171717;
   font-size: 1.5vw;
-  font-weight: 800;
-  font-family: 'Inconsolata', monospace;
+  font-weight: 100;;
+  font-family: 'Miriam Libre', sans-serif;
   border-radius: 1.5vw;
   margin: 2vw;
   height: 28vh;
@@ -169,7 +178,7 @@ h2 {
   width: 60vw;
 }
 
-img {
+.pfp {
   width: 45%;
   height: 55%;
   border-radius: 50%;
@@ -179,11 +188,11 @@ img {
 
 .bio-title {
   font-size: 2vw;
-  font-weight: 800;
+  font-weight: 100;
   padding-top: 4vh;
   padding-left: 3.5vw;
   padding-right: 3.5vw;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Miriam Libre', sans-serif;
   line-height: 110.2%;
   opacity: 1;
   transition: opacity 2s;
@@ -194,3 +203,61 @@ img {
   padding: 3.5vw;
   padding-top: 2vh;
 }
+
+.gallery-text {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding-top: 10vh;
+}
+
+.gallery {
+  width: 50%;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  row-gap: 2vh;
+  position: absolute;
+  right: 0;
+}
+
+.gallery > img {
+  width: 100%;
+  height: auto;
+  transition: 1s;
+  opacity: 0;
+}
+
+.gallery > img:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.gallery > img:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.gallery > img:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
+.gallery-button {
+  color: white;
+  border: 2px solid white;
+  border-radius: 0px;
+  margin-top: 5vh;
+  margin-left: 10vw;
+  padding: 1.5vh 1.5vw;
+  display: inline-block;
+  font-family: 'Miriam Libre', sans-serif;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 0 0 white;
+  -ms-transition: ease-out 0.4s; 
+  -moz-transition: ease-out 0.4s; 
+  -webkit-transition: ease-out 0.4s; 
+  -o-transition: ease-out 0.4s; 
+  transition: ease-out 0.4s;
+}
+
+.gallery-button:hover {
+  color: black;
+  box-shadow: inset 400px 0 0 0 white;
+}
+

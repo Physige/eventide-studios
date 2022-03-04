@@ -59,6 +59,26 @@ function addStar() {
 
 Array(500).fill().forEach(addStar);
 
+const galleryButton = document.getElementById("gallery-button");
+var galleryButtonClicked = false;
+galleryButton.onclick = () => {
+  
+  if (!galleryButtonClicked) {
+    galleryButtonClicked = true;
+    galleryButton.innerHTML = "TERMINATE CONNECTION:";
+    const images = document.getElementsByClassName("gallery-image");
+    for (var i = 0; i < images.length; i++) {
+      images[i].style.opacity = '1';
+    }
+  } else {
+    galleryButtonClicked = false;
+    galleryButton.innerHTML = "INITIALIZE CONNECTION:";
+    const images = document.getElementsByClassName("gallery-image");
+    for (var i = 0; i < images.length; i++) {
+      images[i].style.opacity = '0';
+    }
+  }
+}
 function scrollAnimation() {
   const t = document.body.getBoundingClientRect().top;
   console.log(t);
@@ -91,11 +111,11 @@ function scrollAnimation() {
   }
 
   if (t < -2464) {
-    const left = document.getElementById("left-bar");
-    const right = document.getElementById("right-bar");
+    // const left = document.getElementById("left-bar");
+    // const right = document.getElementById("right-bar");
 
-    left.style.left = '-1%'
-    right.style.right = '0'
+    // left.style.left = '-1%'
+    // right.style.right = '0'
   }
 
   if (t < -4173 && t > -5000) {
