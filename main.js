@@ -70,7 +70,7 @@ function addStar() {
 Array(500).fill().forEach(addStar);
 
 const galleryButton = document.getElementById("galleryButton");
-var galleryEnd = -5287; 
+var galleryEnd = -6269; 
 var galleryButtonClicked = false;
 galleryButton.onclick = () => {
   const galleryViewport = document.getElementById("galleryViewport");
@@ -79,7 +79,7 @@ galleryButton.onclick = () => {
     galleryButton.innerHTML = "TERMINATE CONNECTION:";
 
     galleryViewport.style.height = "280vh";
-    galleryEnd = -6749;
+    galleryEnd = -7731;
 
     const images = document.getElementsByClassName("gallery-image");
     for (var i = 0; i < images.length; i++) {
@@ -122,7 +122,7 @@ function scrollAnimation() {
   const teamPage = document.getElementById("teamPage");
   const leftBar = document.getElementById("leftBar");
   const rightBar = document.getElementById("rightBar");
-  if (t < -2464 && t > -3500) {
+  if (t < -3446 && t > -4482) {
     teamPage.style.opacity = '1';
     leftBar.style.left = '-1%'
     rightBar.style.right = '0'
@@ -136,7 +136,7 @@ function scrollAnimation() {
   const galleryText = document.getElementById("galleryText");
   const galleryButton = document.getElementById("galleryButton");
   const galleryImages = document.getElementsByClassName("gallery-image");
-  if (t < -4352 && t > galleryEnd) {
+  if (t < -5334 && t > galleryEnd) {
     galleryTitle.style.opacity = '1';
     galleryText.style.opacity = '1';
     galleryButton.style.opacity = '1';
