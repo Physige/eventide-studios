@@ -69,13 +69,18 @@ function addStar() {
 
 Array(500).fill().forEach(addStar);
 
-const galleryButton = document.getElementById("gallery-button");
+const galleryButton = document.getElementById("galleryButton");
+var galleryEnd = -5287; 
 var galleryButtonClicked = false;
 galleryButton.onclick = () => {
-  
+  const galleryViewport = document.getElementById("galleryViewport");
   if (!galleryButtonClicked) {
     galleryButtonClicked = true;
     galleryButton.innerHTML = "TERMINATE CONNECTION:";
+
+    galleryViewport.style.height = "280vh";
+    galleryEnd = -6749;
+
     const images = document.getElementsByClassName("gallery-image");
     for (var i = 0; i < images.length; i++) {
       images[i].style.opacity = '1';
@@ -83,6 +88,10 @@ galleryButton.onclick = () => {
   } else {
     galleryButtonClicked = false;
     galleryButton.innerHTML = "INITIALIZE CONNECTION:";
+
+    galleryViewport.style.height = "100vh";
+    galleryEnd = -5287;
+    
     const images = document.getElementsByClassName("gallery-image");
     for (var i = 0; i < images.length; i++) {
       images[i].style.opacity = '0';
@@ -93,45 +102,74 @@ galleryButton.onclick = () => {
 function scrollAnimation() {
   const t = document.body.getBoundingClientRect().top;
   console.log(t);
-  camera.position.z = t * -speed - startingZ;
-  
-  cube.position.z = t * -speed - 4950;
 
-  if (t < -1380) {
-    // const square1 = document.getElementById("square1");
-    // const square2 = document.getElementById("square2");
-    // const square3 = document.getElementById("square3");
+  camera.position.z = t * -speed - startingZ;
+  cube.position.z = t * -speed - (startingZ - 50);
+
+  const introTitle = document.getElementById("introTitle");
+  const introSubtitle = document.getElementById("introSubtitle");
+  const introBody = document.getElementById("introBody");
+  if (t < -1380 && t > -2000) {
+    introTitle.style.opacity = '1';
+    introSubtitle.style.opacity = '1';
+    introBody.style.opacity = '1';
+  } else {
+    introTitle.style.opacity = '0';
+    introSubtitle.style.opacity = '0';
+    introBody.style.opacity = '0';
+  }
+
+  const teamPage = document.getElementById("teamPage");
+  const leftBar = document.getElementById("leftBar");
+  const rightBar = document.getElementById("rightBar");
+  if (t < -2464 && t > -3500) {
+    teamPage.style.opacity = '1';
+    leftBar.style.left = '-1%'
+    rightBar.style.right = '0'
+  } else {
+    teamPage.style.opacity = '0';
+    leftBar.style.left = '-11%'
+    rightBar.style.right = '-11%'
+  }
+
+  const galleryTitle = document.getElementById("galleryTitle");
+  const galleryText = document.getElementById("galleryText");
+  const galleryButton = document.getElementById("galleryButton");
+  const galleryImages = document.getElementsByClassName("gallery-image");
+  if (t < -4352 && t > galleryEnd) {
+    galleryTitle.style.opacity = '1';
+    galleryText.style.opacity = '1';
+    galleryButton.style.opacity = '1';
     
-    // square1.style.opacity = '1';
-    // square2.style.opacity = '1';
-    // square3.style.opacity = '1';
-    //const collection = document.getElementsByClassName("square");
-    
-    // for (var i = 0; i < collection.length; i++) {
-    //   collection[i].style.opacity = '1';
-    // }
+    if (galleryButtonClicked) {
+      for (var i = 0; i < galleryImages.length; i++) {
+        galleryImages[i].style.opacity = '1';
+      }
+    }
+  } else {
+    galleryTitle.style.opacity = '0';
+    galleryText.style.opacity = '0';
+    galleryButton.style.opacity = '0';
+
+    if (galleryButtonClicked) {
+      for (var i = 0; i < galleryImages.length; i++) {
+        galleryImages[i].style.opacity = '0';
+      }
+    }
   }
 
   if (t < -250 && t > -1923) {
-    cube.position.x = t * -0.04 - 40
+    cube.position.x = t * -0.04 - 40;
   }
   
   if (t < -2576 && t > -3840) {
     
-    cube.position.x = t * 0.04 + 140
-  }
-
-  if (t < -2464) {
-    // const left = document.getElementById("left-bar");
-    // const right = document.getElementById("right-bar");
-
-    // left.style.left = '-1%'
-    // right.style.right = '0'
+    cube.position.x = t * 0.04 + 140;
   }
 
   if (t < -4173 && t > -5000) {
     
-    cube.position.x = t * -0.04 - 180
+    cube.position.x = t * -0.04 - 180;
   }
   //console.log(cube.position.x);
 }
