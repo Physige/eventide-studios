@@ -46,10 +46,17 @@ const torus = new THREE.Mesh(geometry, material);
 torus.position.set(-40, 0, -3980)
 scene.add(torus);
 
-const geometry2 = new THREE.BoxGeometry(10, 10, 20);
-const cube = new THREE.Mesh( geometry2, material );
-cube.position.set(-40, -20,-4950);
-scene.add(cube);
+var ship;
+gltfLoader.load('assets/Ship.gltf', (gltf) => {
+  ship = gltf.scene;
+  scene.add(ship);
+  ship.position.set(-50, -15,-4930);
+})
+
+// const geometry2 = new THREE.BoxGeometry(10, 10, 20);
+// const cube = new THREE.Mesh( geometry2, material );
+// cube.position.set(-40, -20,-4950);
+// scene.add(cube);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -101,21 +108,30 @@ galleryButton.onclick = () => {
 
 function scrollAnimation() {
   const t = document.body.getBoundingClientRect().top;
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   console.log(t);
 
   camera.position.z = t * -speed - startingZ;
-  cube.position.z = t * -speed - (startingZ - 50);
+  ship.position.z = t * -speed - (startingZ - 70);
+
+  document.getElementById("progressBar").style.height = (winScroll / height) * 100 + "%";
 
   const overlay = document.getElementById("overlay");
+  const progressBar = document.getElementById("progressBar");
   if (t < -179) {
     overlay.style.filter = "invert(100%)";
-    if (t < -7851) {
+    progressBar.style.filter = "invert(100%)";
+    if (t < galleryEnd - 1582) {
       overlay.style.opacity = '0';
+      progressBar.style.opacity = '0';
     } else {
       overlay.style.opacity = '1';
+      progressBar.style.opacity = '1';
     }
   } else {
     overlay.style.filter = "invert(0%)";
+    progressBar.style.filter = "invert(0%)";
   }
 
   const introTitle = document.getElementById("introTitle");
@@ -129,6 +145,7 @@ function scrollAnimation() {
   if (t < -3446 && t > -4482) {
     teamPage.style.opacity = '1';
     overlay.style.opacity = '0';
+    progressBar.style.opacity = '0';
     leftBar.style.left = '-1%'
     rightBar.style.right = '0'
   } else {
@@ -171,19 +188,20 @@ function scrollAnimation() {
       }
     }
   }
+  // console.log(ship.position.x);
 
   if (t < -250 && t > -1923) {
-    cube.position.x = t * -0.04 - 40;
+    ship.position.x = t * -0.025 - 56.25;
   }
   
   if (t < -2576 && t > -3840) {
     
-    cube.position.x = t * 0.04 + 140;
+    ship.position.x = t * 0.04 + 94.84;
   }
 
-  if (t < -4173 && t > -5000) {
+  if (t < -4173 && t > -5330) {
     
-    cube.position.x = t * -0.04 - 180;
+    ship.position.x = t * -0.04 - 225.64;
   }
   //console.log(cube.position.x);
 }
