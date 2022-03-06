@@ -90,7 +90,7 @@ galleryButton.onclick = () => {
     galleryButton.innerHTML = "INITIALIZE CONNECTION:";
 
     galleryViewport.style.height = "100vh";
-    galleryEnd = -5287;
+    galleryEnd = -6269;
     
     const images = document.getElementsByClassName("gallery-image");
     for (var i = 0; i < images.length; i++) {
@@ -106,28 +106,42 @@ function scrollAnimation() {
   camera.position.z = t * -speed - startingZ;
   cube.position.z = t * -speed - (startingZ - 50);
 
+  const overlay = document.getElementById("overlay");
+  if (t < -179) {
+    overlay.style.filter = "invert(100%)";
+    if (t < -7851) {
+      overlay.style.opacity = '0';
+    } else {
+      overlay.style.opacity = '1';
+    }
+  } else {
+    overlay.style.filter = "invert(0%)";
+  }
+
   const introTitle = document.getElementById("introTitle");
   const introSubtitle = document.getElementById("introSubtitle");
   const introBody = document.getElementById("introBody");
-  if (t < -1380 && t > -2000) {
-    introTitle.style.opacity = '1';
-    introSubtitle.style.opacity = '1';
-    introBody.style.opacity = '1';
-  } else {
-    introTitle.style.opacity = '0';
-    introSubtitle.style.opacity = '0';
-    introBody.style.opacity = '0';
-  }
+  
 
   const teamPage = document.getElementById("teamPage");
   const leftBar = document.getElementById("leftBar");
   const rightBar = document.getElementById("rightBar");
   if (t < -3446 && t > -4482) {
     teamPage.style.opacity = '1';
+    overlay.style.opacity = '0';
     leftBar.style.left = '-1%'
     rightBar.style.right = '0'
   } else {
     teamPage.style.opacity = '0';
+    if (t < -1380 && t > -2000) {
+      introTitle.style.opacity = '1';
+      introSubtitle.style.opacity = '1';
+      introBody.style.opacity = '1';
+    } else {
+      introTitle.style.opacity = '0';
+      introSubtitle.style.opacity = '0';
+      introBody.style.opacity = '0';
+    }
     leftBar.style.left = '-11%'
     rightBar.style.right = '-11%'
   }
