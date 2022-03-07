@@ -6,6 +6,21 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
+/*
+TODO
+-comment code
+-clean up code
+-clean up css class names
+-add animations to ship
+-fix ship material
+-fix stars
+-add extra details and models around
+-add more stuff to overlay
+-add css browser prefixes
+-fix text
+-add images
+*/
+
 window.onresize = () => {
   location.reload();
 };
@@ -40,17 +55,31 @@ pointLight.position.set(-3, -3, -startingZ-50)
 pointLight.castShadow = true;
 scene.add(pointLight);
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({color:0x4287f5});
-const torus = new THREE.Mesh(geometry, material);
-torus.position.set(-40, 0, -3980)
-scene.add(torus);
+// const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+// const material = new THREE.MeshStandardMaterial({color:0x4287f5});
+// const torus = new THREE.Mesh(geometry, material);
+// torus.position.set(-40, 0, -3980)
+// scene.add(torus);
 
 var ship;
 gltfLoader.load('assets/Ship.gltf', (gltf) => {
   ship = gltf.scene;
   scene.add(ship);
   ship.position.set(-50, -15,-4930);
+})
+
+var logo;
+gltfLoader.load('assets/Logo.gltf', (gltf) => {
+  logo = gltf.scene;
+  scene.add(logo);
+  logo.position.set(-10, 0, -4040);
+})
+
+var station;
+gltfLoader.load('assets/Station.gltf', (gltf) => {
+  station = gltf.scene;
+  scene.add(station);
+  station.position.set(-220, -100, -1900);
 })
 
 // const geometry2 = new THREE.BoxGeometry(10, 10, 20);
@@ -105,11 +134,15 @@ galleryButton.onclick = () => {
     }
   }
 }
+var t = document.body.getBoundingClientRect().top;
+var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
 function scrollAnimation() {
-  const t = document.body.getBoundingClientRect().top;
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  t = document.body.getBoundingClientRect().top;
+  winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
   console.log(t);
 
   camera.position.z = t * -speed - startingZ;
@@ -150,6 +183,8 @@ function scrollAnimation() {
     rightBar.style.right = '0'
   } else {
     teamPage.style.opacity = '0';
+
+    // since when was this here?
     if (t < -1380 && t > -2000) {
       introTitle.style.opacity = '1';
       introSubtitle.style.opacity = '1';
@@ -209,11 +244,16 @@ function scrollAnimation() {
 document.body.onscroll = scrollAnimation;
 
 function animate() {
+  // add loading
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.01;
-  torus.rotation.z += 0.01;
+  // torus.rotation.x += 0.01;
+  // torus.rotation.y += 0.01;
+  // torus.rotation.z += 0.01;
+
+  logo.rotation.y += 0.005;
+
+  station.rotation.y += 0.0002;
 
   controls.update();
 
