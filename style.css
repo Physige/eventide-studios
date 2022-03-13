@@ -299,7 +299,7 @@ h2 {
 .gallery > img {
   width: 100%;
   height: auto;
-  border-radius: 1.5vw;
+  border: solid white;
   filter: drop-shadow(0 0 0.75rem black);
   transition: 1s;
   opacity: 0;

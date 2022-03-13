@@ -62,17 +62,29 @@ scene.add(pointLight);
 // scene.add(torus);
 
 var ship;
+var shipAnimation;
 gltfLoader.load('assets/Ship.gltf', (gltf) => {
   ship = gltf.scene;
   scene.add(ship);
   ship.position.set(-50, -15,-4930);
+
+  shipAnimation = new THREE.AnimationMixer(ship);
+  var shipClip1 = gltf.animations[0];
+  var shipAction1 = shipAnimation.clipAction(shipClip1);
+  shipAction1.play();
 })
 
 var logo;
+var logoAnimation;
 gltfLoader.load('assets/Logo.gltf', (gltf) => {
   logo = gltf.scene;
   scene.add(logo);
   logo.position.set(-10, 0, -4040);
+
+  logoAnimation = new THREE.AnimationMixer(logo);
+  var logoClip1 = gltf.animations[0];
+  var logoAction1 = logoAnimation.clipAction(logoClip1);
+  logoAction1.play();
 })
 
 var station;
@@ -243,15 +255,17 @@ function scrollAnimation() {
 
 document.body.onscroll = scrollAnimation;
 
+const clock = new THREE.Clock();
+
 function animate() {
   // add loading
   requestAnimationFrame(animate);
+  
+  // updates animation frames
+  var dt = clock.getDelta()
 
-  // torus.rotation.x += 0.01;
-  // torus.rotation.y += 0.01;
-  // torus.rotation.z += 0.01;
-
-  logo.rotation.y += 0.005;
+  shipAnimation.update(dt);
+  logoAnimation.update(dt);
 
   station.rotation.y += 0.0002;
 
