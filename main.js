@@ -15,7 +15,7 @@ const speed = .5;
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(100, window.innerWidth/window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(100, window.innerWidth/window.innerHeight, 0.1, 950);
 
 const renderer = new THREE.WebGL1Renderer({
   canvas: document.querySelector('#bg'),
@@ -78,6 +78,20 @@ gltfLoader.load('models/Station.gltf', (gltf) => {
   scene.add(station);
   station.position.set(-220, -100, -1900);
 })
+
+// var halo;
+// gltfLoader.load('models/Halo.gltf', (gltf) => {
+//   halo = gltf.scene;
+//   scene.add(halo);
+//   halo.position.set(500, 0, -3040);
+// })
+
+// var fortyk;
+// gltfLoader.load('models/40k.gltf', (gltf) => {
+//   fortyk = gltf.scene;
+//   scene.add(fortyk);
+//   fortyk.position.set(400, -200, -startingZ+800);
+// })
 
 // const geometry2 = new THREE.BoxGeometry(10, 10, 20);
 // const cube = new THREE.Mesh( geometry2, material );
