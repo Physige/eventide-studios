@@ -178,8 +178,9 @@ h2 {
   transition: opacity 2s;
 }
 
-.whitebar-left {
-  background-color: white;
+.line-left {
+  color: white;
+  border-right: solid 5px white;
   position: absolute;
   left: -11%;
   height: 100%;
@@ -187,97 +188,59 @@ h2 {
   transition: 1s;
 }
 
-.whitebar-right {
-  background-color: white;
-  position: absolute;
-  right: -11%;
-  height: 100%;
-  width: 10%;
-  transition: 1s;
+#teamTitle {
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+.team {
+  display: flex;
+  margin-left: 300px;
+  transition: .5s;
 }
 
 .team-member {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  text-align: start;
-  
+  display: flex;
 }
 
-.team-member:nth-child(odd) {
-  grid-template-columns: 70% 30%;
-  text-align: end;
-}
+/* .team-member:nth-child(1) {
+  display: flex;
+  margin-left: 300px;
+} */
 
+.team-number {
+  font-family: 'Inconsolata', monospace;
+  font-size: 130px;
+  font-weight: 800;
+  padding-right: 20px;
+}
 
 .name {
-  text-align: center;
-  color: black;
-  background-color: white;
-  font-size: 1.5vw;
-  font-weight: 100;
-  font-family: 'Miriam Libre', sans-serif;
-  border-radius: 1.5vw;
-  margin: 2vw;
-  height: 22vh;
-  margin-top: auto;
-  box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.5);
-  transition: .5s;
-}
-
-.name:hover {
-  transform: scale(1.008);
+  /* background-color: red; */
+  font-family: 'Inconsolata', monospace;
+  font-size: 40px;
+  font-weight: 800;
+  border-bottom: solid 2px white;
+  border-left: solid 2px white;
+  width: 400px;
+  height: 150px;
+  padding: 50px;
 }
 
 .bio {
-  color: white;
-  background-color: #171717;
-  font-size: 1.5vw;
-  font-weight: 100;;
-  font-family: 'Miriam Libre', sans-serif;
-  border-radius: 1.5vw;
-  margin: 2vw;
-  height: 28vh;
-  transition: .5s;
-}
-
-.bio:hover {
-  transform: scale(1.008);
-  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  filter: drop-shadow(0px .7vh 0px #2E2E2E); */
-}
-
-.centered {
-  text-align: center;
-  margin: auto;
-  width: 60vw;
-  transition: opacity .5s;
-  opacity: 0;
+  /* background-color: blue; */
+  font-family: 'Inconsolata', monospace;
+  font-size: 20px;
+  font-weight: 00;
+  border-left: solid 2px white;
+  width: 590px;
+  height: 90px;
+  padding: 30px;
 }
 
 .pfp {
-  width: 45%;
-  height: 55%;
+  width: 30%;
   border-radius: 50%;
-  position: relative;
-  top: -25%;
-}
-
-.bio-title {
-  font-size: 2vw;
-  font-weight: 100;
-  padding-top: 4vh;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
-  font-family: 'Miriam Libre', sans-serif;
-  line-height: 110.2%;
-  opacity: 1;
-  transition: opacity 2s;
-}
-
-.bio-content {
-  font-size: 1vw;
-  padding: 3.5vw;
-  padding-top: 2vh;
 }
 
 .gallery-text {

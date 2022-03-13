@@ -182,19 +182,20 @@ function scrollAnimation() {
   const introTitle = document.getElementById("introTitle");
   const introSubtitle = document.getElementById("introSubtitle");
   const introBody = document.getElementById("introBody");
-  
 
   const teamPage = document.getElementById("teamPage");
-  const leftBar = document.getElementById("leftBar");
-  const rightBar = document.getElementById("rightBar");
+  const teamTitle = document.getElementById("teamTitle");
+  const leftLine = document.getElementById("leftLine");
+  
   if (t < -3446 && t > -4482) {
     teamPage.style.opacity = '1';
+    teamTitle.style.opacity = '1';
     overlay.style.opacity = '0';
     progressBar.style.opacity = '0';
-    leftBar.style.left = '-1%'
-    rightBar.style.right = '0'
+    leftLine.style.left = '-1%'
   } else {
     teamPage.style.opacity = '0';
+    teamTitle.style.opacity = '0';
 
     // since when was this here?
     if (t < -1380 && t > -2000) {
@@ -206,8 +207,7 @@ function scrollAnimation() {
       introSubtitle.style.opacity = '0';
       introBody.style.opacity = '0';
     }
-    leftBar.style.left = '-11%'
-    rightBar.style.right = '-11%'
+    leftLine.style.left = '-11%'
   }
 
   const galleryTitle = document.getElementById("galleryTitle");
