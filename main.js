@@ -6,21 +6,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-/*
-TODO
--comment code
--clean up code
--clean up css class names
--add animations to ship
--fix ship material
--fix stars
--add extra details and models around
--add more stuff to overlay
--add css browser prefixes
--fix text
--add images
-*/
-
 window.onresize = () => {
   location.reload();
 };
@@ -45,7 +30,7 @@ scene.add(ambientLight);
 
 const gltfLoader = new GLTFLoader();
 
-gltfLoader.load('assets/Hanger.gltf', (gltf) => {
+gltfLoader.load('models/Hanger.gltf', (gltf) => {
   scene.add(gltf.scene);
   gltf.scene.position.set(-50, -4.5, -startingZ)
 })
@@ -63,7 +48,7 @@ scene.add(pointLight);
 
 var ship;
 var shipAnimation;
-gltfLoader.load('assets/Ship.gltf', (gltf) => {
+gltfLoader.load('models/Ship.gltf', (gltf) => {
   ship = gltf.scene;
   scene.add(ship);
   ship.position.set(-50, -15,-4930);
@@ -76,7 +61,7 @@ gltfLoader.load('assets/Ship.gltf', (gltf) => {
 
 var logo;
 var logoAnimation;
-gltfLoader.load('assets/Logo.gltf', (gltf) => {
+gltfLoader.load('models/Logo.gltf', (gltf) => {
   logo = gltf.scene;
   scene.add(logo);
   logo.position.set(-10, 0, -4040);
@@ -88,7 +73,7 @@ gltfLoader.load('assets/Logo.gltf', (gltf) => {
 })
 
 var station;
-gltfLoader.load('assets/Station.gltf', (gltf) => {
+gltfLoader.load('models/Station.gltf', (gltf) => {
   station = gltf.scene;
   scene.add(station);
   station.position.set(-220, -100, -1900);
@@ -127,7 +112,7 @@ galleryButton.onclick = () => {
     galleryButton.innerHTML = "TERMINATE CONNECTION:";
 
     galleryViewport.style.height = "280vh";
-    galleryEnd = -7731;
+    galleryEnd = -8130;
 
     const images = document.getElementsByClassName("gallery-image");
     for (var i = 0; i < images.length; i++) {

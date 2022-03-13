@@ -63,7 +63,7 @@ main {
   justify-content: center;
 } */
 
-.centered-main-title {
+h1 {
   color: black;
   font-size: 5vw;
   font-weight: 700;
@@ -72,6 +72,15 @@ main {
   line-height: 110.2%;
   width: 25%;
   margin: 0;
+  padding-left: 8vw;
+}
+
+h2 {
+  color: black;
+  font-size: 2vw;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 100;
+  width: 35%;
   padding-left: 8vw;
 }
 
@@ -85,15 +94,6 @@ main {
   line-height: 110.2%;
   width: 25%;
   margin: 0;
-}
-
-h2 {
-  color: black;
-  font-size: 2vw;
-  font-family: 'Inconsolata', monospace;
-  font-weight: 100;
-  width: 35%;
-  padding-left: 8vw;
 }
 
 .page-title {
@@ -162,19 +162,6 @@ h2 {
   padding-top: 10vw;
   padding-bottom: 1vw;
   line-height: 110.2%;
-  transition: opacity 2s;
-}
-
-.square5 {
-  font-size: 1.5vw;
-  font-weight: 100;
-  font-family: 'Inconsolata', monospace;
-  padding-left: 10vw;
-  padding-top: 7vh;
-  line-height: 110.2%;
-  width: 30%;
-  margin: 0;
-  opacity: 0;
   transition: opacity 2s;
 }
 
@@ -262,7 +249,6 @@ h2 {
 .gallery > img {
   width: 100%;
   height: auto;
-  border: solid white;
   filter: drop-shadow(0 0 0.75rem black);
   transition: 1s;
   opacity: 0;
