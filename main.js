@@ -95,19 +95,26 @@ gltfLoader.load('models/Station.gltf', (gltf) => {
 })
 
 // extra scene models which i removed cause i felt it made things too cluttered
-// var halo;
-// gltfLoader.load('models/Halo.gltf', (gltf) => {
-//   halo = gltf.scene;
-//   scene.add(halo);
-//   halo.position.set(500, 0, -3040);
-// })
+var halo;
+gltfLoader.load('models/Halo.gltf', (gltf) => {
+  halo = gltf.scene;
+  scene.add(halo);
+  halo.position.set(500, 0, -3040);
+})
 
-// var fortyk;
-// gltfLoader.load('models/40k.gltf', (gltf) => {
-//   fortyk = gltf.scene;
-//   scene.add(fortyk);
-//   fortyk.position.set(400, -200, -startingZ+800);
-// })
+var fortyk;
+gltfLoader.load('models/40k.gltf', (gltf) => {
+  fortyk = gltf.scene;
+  scene.add(fortyk);
+  fortyk.position.set(400, -200, -startingZ+800);
+})
+
+var fighters;
+gltfLoader.load('models/fighters.gltf', (gltf) => {
+  fighters = gltf.scene;
+  scene.add(fighters);
+  fighters.position.set(1300, -200, -startingZ+700);
+})
 
 // const geometry2 = new THREE.BoxGeometry(10, 10, 20);
 // const cube = new THREE.Mesh( geometry2, material );
@@ -305,6 +312,14 @@ function animate() {
 
   shipAnimation.update(dt);
   logoAnimation.update(dt);
+
+  // moves the fighters at the beginning
+  fighters.position.x -= 4;
+
+  // moves the fighters back to their OG position
+  if (fighters.position.x <= -2000) {
+    fighters.position.x = 1300;
+  }
 
   // rotates the space station on every animation frame
   station.rotation.y += 0.0002;
