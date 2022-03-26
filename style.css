@@ -366,3 +366,28 @@ form > textarea{
   resize: none;
 }
 
+.warning {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
+  font-family: 'Inconsolata', monospace;
+  display: none;
+}
+
+.warning > p {
+  margin: 10vw;
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .warning {
+    display: inline;
+  }
+
+  main {
+    display: none;
+  }
+
+  canvas {
+    display: none;
+  }
+}
